@@ -11,6 +11,8 @@
 #' @param design a design matrix that has as many columns as conditions
 #'   and as many rows as samples (i.e. columns) in X. If a sample belongs
 #'   to a condition it has value 1, if not the matrix contains a 0.
+#' 
+#' @export
 estimate_variance_moderation <- function(X, design){
   '
   Identical to the result that limma produces
