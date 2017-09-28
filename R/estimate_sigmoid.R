@@ -20,6 +20,8 @@
 #'   using \code{estimate_variance_moderation}
 #' @param n_iter the number of MCMC iterations
 #' @param ... additional parameters that are passed on to \code{rstan::sampling}
+#' 
+#' @export
 estimate_sigmoid <- function(X, data_description, d0, s0, n_iter=2000, ...){
   if(d0 > 200)
     d0 <- 200
