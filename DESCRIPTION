@@ -1,0 +1,28 @@
+Package: proDD
+Type: Package
+Title: Differential Detection of Proteins in Label Free Quantification Data
+Version: 0.1.0
+Authors@R: person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", role = c("aut", "cre"))
+Description: Find significantly differentially detected proteins in LFQ Mass Spec data
+   This package provides the implementation of an algorithm to find significant proteins in LFQ data,
+   even if the data has lots of missing values (i.e. zeros) and only a small number of replicates.
+   It works on the basic assumption that low intensity values are more likely to be missing. It thus
+   can infer condition wise means and enable statistical tests to find differentially detected proteins.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 3.0.2),
+  Rcpp (>= 0.12.11),
+  methods
+Imports:
+   rstan (>= 2.16.2),
+   rstantools (>= 1.2.0)
+LinkingTo:
+  StanHeaders (>= 2.16.0.1),
+  rstan (>= 2.16.2),
+  BH (>= 1.62.0.1),
+  Rcpp (>= 0.12.11),
+  RcppEigen (>= 0.3.3.3.0)
+Suggests: testthat
+RoxygenNote: 6.0.1
