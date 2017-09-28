@@ -1,4 +1,5 @@
 
+#' Estimate variance moderation prior
 #'
 #' Function to estimate the parameters of an inverse chi-squared distribution
 #' that is assummed as the prior of the variance for each protein.

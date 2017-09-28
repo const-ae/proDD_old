@@ -2,12 +2,7 @@
 % Please edit documentation in R/estimate_variance_moderation.R
 \name{estimate_variance_moderation}
 \alias{estimate_variance_moderation}
-\title{Function to estimate the parameters of an inverse chi-squared distribution
-that is assummed as the prior of the variance for each protein.
-The method was initially developed in Smyth, 2004 in the context of microarrays
-to increase the power to detected differentially expressed genes. The
-estimated inverse chi-squared distribution can be used to moderate the
-variance estimate for each individual protein.}
+\title{Estimate variance moderation prior}
 \usage{
 estimate_variance_moderation(X, design)
 }
