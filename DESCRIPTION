@@ -18,7 +18,8 @@ Depends:
 Imports:
    rstan (>= 2.16.2),
    rstantools (>= 1.2.0),
-   limma
+   limma,
+   maxLik
 LinkingTo:
   StanHeaders (>= 2.16.0.1),
   rstan (>= 2.16.2),
