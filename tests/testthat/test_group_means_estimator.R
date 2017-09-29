@@ -1,7 +1,7 @@
 
 library(proDD)
 
-context("Sigmoid Estimator")
+context("Group Mean Estimator")
 
 set.seed(1234)
 
