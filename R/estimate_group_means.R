@@ -70,7 +70,7 @@ estimate_group_means <- function(X, design, d0, s0, location_est, scale_est) {
         warning(paste0("Parameter fit did not succeed (code=", max_ll$code, "). Message: ", max_ll$message, "\n"))
       }
       mu_err <- maxLik:::stdEr.maxLik(max_ll)[["mu"]]^2 
-      sdd_err=maxLik:::stdEr.maxLik(max_ll)[["sdd"]]^2
+      sdd_err <- maxLik:::stdEr.maxLik(max_ll)[["sdd"]]^2
       
       # In case there are multiple groups with all zero
       # there are multiple ways to distribute the beta
@@ -93,6 +93,6 @@ estimate_group_means <- function(X, design, d0, s0, location_est, scale_est) {
     
   }))
   
-  result
+  as.data.frame(result)
   
 }
