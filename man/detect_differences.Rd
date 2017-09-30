@@ -23,6 +23,11 @@ using \code{estimate_variance_moderation}}
 
 \item{s0}{estimated variance of the variance moderation prior. Can be found
 using \code{estimate_variance_moderation}}
+
+\item{group_locations}{a dataframe with the following columns: sdd (pooled group variance) and
+beta_1, beta_2, ..., beta_x (where x is the integer for the level of the respective condition in data_description)}
+
+\item{comparison}{a character vector with the names of the condition that are compared}
 }
 \description{
 Perform moderated t-test on the MLE group means
