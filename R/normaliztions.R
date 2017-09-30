@@ -2,6 +2,15 @@
 
 #' Median Normalization
 #' 
+#' @param X a numerical matrix that contains the log intensity values. Missing
+#'   data has to be encoded as 0
+#' @param design a design matrix that has as many columns as conditions
+#'   and as many rows as samples (i.e. columns) in X. If a sample belongs
+#'   to a condition it has value 1, if not the matrix contains a 0.
+#' @param reference_cond the index of the design column with the condition
+#'   that is used as the reference.
+#'   
+#' @export
 median_normalization <- function(X, design,  reference_cond=1){
   ref_rowwise_mean_wo_zero <- apply(X[, which(design[ , reference_cond] != 0)], 1, function(row)mean(row[row != 0]))
   
@@ -18,7 +27,17 @@ median_normalization <- function(X, design,  reference_cond=1){
   X
 }
 
-
+#' MA Plot
+#' 
+#' @param X a numerical matrix that contains the log intensity values. Missing
+#'   data has to be encoded as 0
+#' @param design a design matrix that has as many columns as conditions
+#'   and as many rows as samples (i.e. columns) in X. If a sample belongs
+#'   to a condition it has value 1, if not the matrix contains a 0.
+#' @param reference_cond the index of the design column with the condition
+#'   that is used as the reference.
+#'   
+#' @export
 ma_plot <- function(X, design, reference_cond=1){
   ref_rowwise_mean_wo_zero <- apply(X[, which(design[ , reference_cond] != 0)], 1, function(row)mean(row[row != 0]))
   # Let's make new MA plots
