@@ -1,5 +1,23 @@
 
-
+#' Detect differences between groups
+#' 
+#' Perform moderated t-test on the MLE group means
+#' @param X a numerical matrix that contains the log intensity values. Missing
+#'   data has to be encoded as 0
+#' @param design a design matrix that has as many columns as conditions
+#'   and as many rows as samples (i.e. columns) in X. If a sample belongs
+#'   to a condition it has value 1, if not the matrix contains a 0.
+#' @param data_description a dataframe with a `Condition` factor column which 
+#'   assign each column of \code{X} to a condition
+#' @param d0 estimated degrees of freedom of the variance moderation prior. Can be found
+#'   using \code{estimate_variance_moderation}
+#' @param s0 estimated variance of the variance moderation prior. Can be found
+#'   using \code{estimate_variance_moderation}
+#' @group_locations a dataframe with the following columns: sdd (pooled group variance) and
+#'   beta_1, beta_2, ..., beta_x (where x is the integer for the level of the respective condition in data_description)
+#' @comparison a character vector with the names of the condition that are compared
+#'   
+#' @export
 detect_differences <- function(X, design, data_description, d0, s0, group_locations, comparison){
 
   N_genes <- nrow(X)
