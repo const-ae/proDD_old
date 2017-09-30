@@ -19,3 +19,6 @@ get_stan_model <- function(){
   stanmodels$estimate_sigmoid
   
 }
+
+
+scalar1 <- function(x) {x / sqrt(sum(x^2))}
