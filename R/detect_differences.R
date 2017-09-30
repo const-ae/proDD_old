@@ -1,8 +1,7 @@
 
 
 detect_differences <- function(X, design, data_description, d0, s0, group_locations, comparison){
-# do_f_test <- function(X, contr, result, design, d0, s0){
-  
+
   N_genes <- nrow(X)
   N_rep <- ncol(X)
   N_cond <- ncol(design)
@@ -28,9 +27,6 @@ detect_differences <- function(X, design, data_description, d0, s0, group_locati
   
   betas <- as.matrix(group_locations[, grepl("beta_\\d+", colnames(group_locations))])
   
-  # p_values_for_contrasts <- lapply(1:ncol(contr), function(col_index){
-  #   contr_col <- contr[, col_index]
-  
   contr_col <- limma::makeContrasts(paste0(comparison[1], "-", comparison[2]), levels=levels(data_description$Condition))[, 1]
   n_contr <- length(which(contr_col != 0))
   col_oi_sel <- rowSums(design[ ,which(contr_col != 0)]) != 0
@@ -48,8 +44,5 @@ detect_differences <- function(X, design, data_description, d0, s0, group_locati
     (1 - pf(r, df1=2 - 1, df2=df[i] + d0))
   })
   
-  
-  # names(p_values_for_contrasts) <- colnames(contr)
-  # c(list(df=df, var_post=var_j_est, var_prior=tmp_p_vars),p_values_for_contrasts)
   data.frame(df, var_post=var_j_est, var_prior=tmp_p_vars, p_value=mod_p)
 }
