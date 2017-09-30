@@ -45,7 +45,7 @@ detect_differences <- function(X, design, data_description, d0, s0, group_locati
   
   betas <- as.matrix(group_locations[, grepl("beta_\\d+", colnames(group_locations))])
   
-  contr_col <- limma::makeContrasts(paste0(comparison[1], "-", comparison[2]), levels=levels(data_description$Condition))[, 1]
+  contr_col <- limma::makeContrasts(contrasts=paste0(comparison[1], "-", comparison[2]), levels=levels(data_description$Condition))[, 1]
   n_contr <- length(which(contr_col != 0))
   col_oi_sel <- rowSums(design[ ,which(contr_col != 0)]) != 0
   
