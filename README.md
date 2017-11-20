@@ -20,6 +20,13 @@ Unlike other approaches that have been suggested in the literature that rely on 
 Workflow
 --------
 
+Installation
+
+``` r
+# Install directly from github
+devtools::github("const-ae/proDD")
+```
+
 Let's assume that `X` is a matrix where each row contains the intensity for one protein and each column is one sample, which can be grouped into conditions.
 
 ``` r
